@@ -1,5 +1,6 @@
 ---
 layout: page
+title: Whitepaper
 ---
 
 # Test Automation Framework Whitepaper
