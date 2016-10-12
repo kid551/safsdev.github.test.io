@@ -1,2 +1,2 @@
 # safsdev.github.test.io
-Test prototype for safsdev.github.io.
+Test prototype for safsdev.github.io: https://safsdev.github.io/.
