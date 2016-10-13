@@ -9,6 +9,7 @@ title: Whitepaper
 > --Carl J. Nagle
 
 <a name="section_1.1" />
+
 ### 1.1 Thinking Past "The Project"
 
 In today’s environment of plummeting cycle times, test automation becomes an increasingly critical and strategic necessity. Assuming the level of testing in the past was sufficient (which is rarely the case), how do we possibly keep up with this new explosive pace of web-enabled deployment while retaining satisfactory test coverage and reducing risk? The answer is either more people for manual testing, or a greater level of test automation. After all, a reduction in project cycle times generally correlates to a reduction of time for test.
@@ -21,6 +22,7 @@ To handle this chaos we have to think past the project. We cannot afford to engi
 
 
 <a name="section_1.1.1" />
+
 ### 1.1.1 Problems with Test Automation
 
 Historically, test automation has not met with the level of success that it could. Time and again test automation efforts are born, stumble, and die. Most often this is the result of misconceived perceptions of the effort and resources necessary to implement a successful, long-lasting automation framework. Why is this, we might ask? Well, there are several reasons.
@@ -57,6 +59,7 @@ Test automation must be approached as a full-blown software development effort i
 > Eventually, most of these automation projects were put on hold. By the end of 1999--less than two years from the inception of this large-scale automation effort--over 75% of the test automation tools were back on the shelves waiting for a new chance to try again at some later date.
 
 <a name="section_1.1.2" />
+
 ### 1.1.2 Some Test Strategy Guidelines
 
 Past failings like these have been lessons for the entire testing community. Realizing that we must develop reusable test strategies is no different than the reusability concerns of any good application development project. As we set out on our task of automating test, we must keep these past lessons forefront.
@@ -75,6 +78,7 @@ These ideals are not earth shattering. They are not relatively new. Yet, it is s
 So what do they mean?
 
 <a name="section_1.1.3" />
+
 ### 1.1.3	Test automation is a fulltime effort, not a sideline
 
 While not necessarily typical design criteria, it bears repeating. The test framework design and the coding of that design together require significant front-loaded time and effort. These are not things that someone can do when they have a little extra time here, or there, or between projects. The test framework must be well thought out. It must be documented. It should be reviewed. It should be tested. It is a full software development project like any other. This bears repeating--again.
@@ -84,6 +88,7 @@ Will our test framework development have all of these wonderful documentation, d
 We should continuously push for both endeavors to implement all these critical practices.
 
 <a name="section_1.1.4" />
+
 ### 1.1.4	The test design and the test framework are totally separate entities
 
 The test design details how the particular functions and features of our application will be tested. It will tell us what to do, how and when to do it, what data to use as input, and what results we expect to find. All of this is specific to the particular application or item being tested. Little of this requires any knowledge or care of whether the application will be tested automatically or manually. It is, essentially, the "how to" of what needs to be tested in the application.
@@ -91,6 +96,7 @@ The test design details how the particular functions and features of our applica
 On the other hand, the test framework, or specifically, the test automation framework is an execution environment for automated tests. It is the overall system in which our tests will be automated. The development of this framework requires completely different technical skills than those needed for test design.
 
 <a name="section_1.1.5" />
+
 ### 1.1.5	The test framework should be application-independent
 
 Although applications are relatively unique, the components that comprise them, in general, are not. Thus, we should focus our automation framework to deal with the common components that make up our unique applications. By doing this, we can remove all application-specific context from our framework and reuse virtually everything we develop for every application that comes through the automated test process.
@@ -112,6 +118,7 @@ We do this by using variables, and providing application-specific data to our ap
 Does this mean that we will never have to develop application-specific test scripts? Of course not. However, if we can limit our application-specific test scripts to some small percentage, while reusing the best features of our automation framework, we will reap the rewards project after project.
 
 <a name="section_1.1.6" />
+
 ### 1.1.6 The test framework must be easy to expand, maintain, and perpetuate
 
 One of our goals should be a highly modular and maintainable framework. Generally, each module should be independent and separate from all the other modules. What happens inside one is of no concern to the others.
@@ -127,6 +134,7 @@ To prevent this, we should define documentation standards and templates. Whereve
 We must always remember: our ultimate goal is to simplify and perpetuate a successful test automation framework. To put something in place that people will use and reuse for as long as it is technically viable and productive.
 
 <a name="section_1.1.7" />
+
 ### 1.1.7	The test strategy/design vocabulary should be framework independent
 
 As noted before, the framework refers to the overall environment we construct to execute our tests. The centerpiece is usually one of many commercially available automation tools. In good time, it may be more than one. In some rare circumstances, it might even be a proprietary tool developed or contracted specifically for our test automation needs.
@@ -147,6 +155,7 @@ A good test strategy, comprised of our test designs and our test framework, can 
 
 
 <a name="section_1.1.8" />
+
 ### 1.1.8	The test strategy/design should remove most testers from the complexities of the test framework
 
 In practice, we cannot expect all our test personnel to become proficient in the use of the automation tools we use in our test framework. In some cases, this is not even an option worth considering. Remember, generally, testers are testers--they are not programmers. Sometimes our testers are not even professional testers. Sometimes they are application domain experts with little or no use for the technical skills needed for software development.
@@ -158,6 +167,7 @@ Yet, with the appropriate test strategy and vocabulary as discussed in the previ
 The bulk of our testers can concentrate on test design, and test design only. It is the automation framework folks who will focus on the tools and utilities to automate those tests.
 
 <a name="section_1.2" />
+
 ### 1.2 Data Driven Automation Frameworks
 
 Over the past several years there have been numerous articles done on various approaches to test automation. Anyone who has read a fair, unbiased sampling of these knows that we cannot and *must not* expect pure capture and replay of test scripts to be successful for the life of a product. We will find nothing but frustration there.
@@ -168,6 +178,7 @@ Obviously, we are not going to get there from here.
 
 
 <a name="section_1.2.1" />
+
 ### 1.2.1 Data Driven Scripts
 
 Data driven scripts are those application-specific scripts captured or manually coded in the automation tool’s proprietary language and then modified to accommodate variable data. Variables will be used for key application input fields and program selections allowing the script to drive the application with external data supplied by the calling routine or the shell that invoked the test script.
@@ -199,6 +210,7 @@ A test automation framework relying on data driven scripts is definitely the eas
 
 
 <a name="section_1.2.2" />
+
 ### 1.2.2 Keyword or Table Driven Test Automation
 
 Nearly everything discussed so far defining our ideal automation framework has been describing the best features of "keyword driven" test automation. Sometimes this is also called "table driven" test automation. It is typically an application-independent automation framework designed to process our tests. These tests are developed as data tables using a keyword vocabulary that is independent of the test automation tool used to execute them. This keyword vocabulary should also be suitable for manual testing, as you will soon see.
@@ -284,6 +296,7 @@ Fortunately, this heavy, initial investment is mostly a one-shot deal. Once in p
 Additionally, there may now be commercial products suitable for your needs to decrease, but not eliminate, much of the up-front technical burden of implementing such a framework. This was not the case just a few years ago. We will briefly discuss a couple of these in [Section 1.2.4](#section_1.2.4).
 
 <a name="section_1.2.3" />
+
 ### 1.2.3 Hybrid Test Automation (or, "All of the Above")
 
 The most successful automation frameworks generally accommodate both keyword driven testing as well as data driven scripts. This allows data driven scripts to take advantage of the powerful libraries and utilities that usually accompany a keyword driven architecture.
@@ -293,6 +306,7 @@ The framework utilities can make the data driven scripts more compact and less p
 On the other hand, the framework can use scripts to perform some tasks that might be too difficult to re-implement in a pure keyword driven approach, or where the keyword driven capabilities are not yet in place.
 
 <a name="section_1.2.4" />
+
 ### 1.2.4 Commercial Keyword Driven Frameworks
 
 Some commercially available keyword driven frameworks are making inroads in the test automation markets. These generally come from 3rd party companies as a bridge between your application and the automation tools you intend to deploy. They are not out-of-the-box, turnkey automation solutions just as the capture\replay tools are not turnkey solutions.
