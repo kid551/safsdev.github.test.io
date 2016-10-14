@@ -200,6 +200,24 @@ a.sidebar-nav-item:focus {
   border-color: transparent;
 }
 
+a.github {
+  background: url(/public/GitHub-Mark-64px.png) no-repeat center left;
+  background-size: 15%;
+}
+
+a.sf {
+  background: url(/public/sf.jpg) no-repeat center left;
+  background-size: 12%;
+}
+
+a.buttons {
+  color: #fff;
+  text-decoration: none;
+  font-weight: normal;
+  padding: 2px 2px 2px 22px;
+  height: 30px;
+}
+
 @media (min-width: 48em) {
   .sidebar-item {
     padding: 1.5rem;

@@ -25,13 +25,36 @@
       {% endif %}
     {% endfor %}
 
-    
+    <!--
     <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub Project</a>
     <a class="sidebar-nav-item" href="{{ site.sourceforge.repo }}">SourceForge Project</a>
-    <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
+    -->
+        
   </nav>
+  <br>
+
 
   <div class="sidebar-item">
+  <!--
+    <ul list-style="none">
+      <li list-style-type="none" line-height=10.5>
+        <a class="buttons github" href="{{ site.github.repo }}"> View On GitHub </a> <br line-height="5px"><br>
+      </li>
+      <li list-style-type="none">
+        <a class="buttons sf" href="{{ site.github.repo }}"> View On SourceForge </a>    
+      </li>
+    </ul>
+  -->
+
+    <p> 
+      <a class="buttons github" href="{{ site.github.repo }}"> View On GitHub </a>
+    </p>
+    <p> 
+      <a class="buttons sf" href="{{ site.github.repo }}"> View On SourceForge </a> 
+    </p>
+    
+    <br>
+    
     <p>
       &copy; {{ site.time | date: '%Y' }}. All rights reserved.
     </p>
