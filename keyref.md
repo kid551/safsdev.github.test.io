@@ -1,6 +1,7 @@
 ---
-layout: page
-title: Keywords References
+layout: empty
+title: SeleniumPlus Tutorial
 ---
+
 
 {% include keyref/GenericMasterFunctionsReference.htm %}
