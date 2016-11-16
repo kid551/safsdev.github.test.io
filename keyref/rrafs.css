@@ -86,6 +86,7 @@ td {
 
 .Support, .WSupport, .FSupport,
 .WFSupport, .domainMarker {
+	border: 1px;
 	font-family: inherit;
 	display: inline;
   	padding: .2em .6em .2em .6em;
