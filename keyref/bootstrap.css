@@ -1452,6 +1452,7 @@ dt {
 }
 dd {
   margin-left: 0;
+  color: #337ab7;
 }
 @media (min-width: 768px) {
   .dl-horizontal dt {
