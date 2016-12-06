@@ -1190,6 +1190,9 @@ h6,
   background-color: #BED4EB;
   padding: 5px 0 5px 10px;
 }
+h4.safsIdent {
+	background-color: #D8DEE3;
+}
 h1 small,
 h2 small,
 h3 small,
