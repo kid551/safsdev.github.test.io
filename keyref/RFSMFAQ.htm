@@ -105,7 +105,7 @@ div.WordSection1
 <ol>
 	<!-- ============================================================================= -->
 	<li><h4 class="safsIdent">What does RFSM mean?</h4></li>
-	<p>RFSM means RFT Find Search Mode. RFSM is a name of the search algorithm. It uses RFT API to find AUT’s objects. 
+	<p>RFSM means RFT Find Search Mode. RFSM is a name of the search algorithm. It uses RFT API to find AUT's objects. 
 	
 
 
@@ -119,7 +119,7 @@ div.WordSection1
 
 	<p>Or</p>
 
-	<p>Turn on exclusively RFMS mode by adding <code>RFSMOnly=true</code> flag into the tidtest.ini file of the automation project. Once you turn on the flag then the recognition string doesn’t require <code>:RFSM:</code> prefix. </p>
+	<p>Turn on exclusively RFMS mode by adding <code>RFSMOnly=true</code> flag into the tidtest.ini file of the automation project. Once you turn on the flag then the recognition string doesn't require <code>:RFSM:</code> prefix. </p>
 
 	<p>Example: <code>.domain=Java;.class=com.sas.test</code></p>
 
@@ -138,7 +138,7 @@ div.WordSection1
 
 	<code class="safs">
 	[SASHelp]<br>
-	SASHelp=”Type=Window;Caption={^T.SASHelp.Caption}”<br>
+	SASHelp="Type=Window;Caption={^T.SASHelp.Caption}"<br>
 	ButtonPrint=":RFSM:.class=javax.swing.JButton;.text=Print"
 	</code>
 
@@ -147,7 +147,7 @@ div.WordSection1
 	<!-- ============================================================================= -->
 	<li><h4 class="safsIdent">Does RFSM support regular expression to find dynamic object window?</h4></li>
 	
-	<p>Yes, RFSM supports regular expression and follow java’s regular expression rules. Regular Expression
+	<p>Yes, RFSM supports regular expression and follow java's regular expression rules. Regular Expression
 	syntax will specify into / regular expression / block. </p>
 
 	<p>Examples: if regular expression
@@ -165,7 +165,7 @@ div.WordSection1
 	
 	<!-- ============================================================================= -->
 	<li><h4 class="safsIdent">Does recognition string have any reserved words for the syntax?</h4></li>
-	<p>Yes, “<b>;</b>” "<b>;\;</b>" and “<b>=</b>” are reserves for recognition strings. Don’t use them as part of regular expression or object property value. If it required as object property value, then make regular expression to substitute.</p>
+	<p>Yes, "<b>;</b>" "<b>;\;</b>" and "<b>=</b>" are reserves for recognition strings. Don't use them as part of regular expression or object property value. If it required as object property value, then make regular expression to substitute.</p>
 
 	<p>Example:</p>
 
@@ -189,12 +189,12 @@ div.WordSection1
 
 	<!-- ============================================================================= -->
 	<li><h4 class="safsIdent">How can I capture recognition string for the RFSM?</h4></li>
-	<p>Use RFT’s Test Object Inspector (Run&nbsp;-&gt;&nbsp;Test Object Inspector…) utility to find AUT object’s property. There are many property starts with "." prefix, keep them as they are display.</p>
+	<p>Use RFT's Test Object Inspector (Run&nbsp;-&gt;&nbsp;Test Object Inspector...) utility to find AUT object's property. There are many property starts with "." prefix, keep them as they are display.</p>
 
 
 
 	<!-- ============================================================================= -->
-	<li><h4 class="safsIdent">How can I find dynamic property change objects which are inserted into table’s row? Or regular expression finds more objects while user would like to process as objects order display into the Application Under Test.</h4></li>
+	<li><h4 class="safsIdent">How can I find dynamic property change objects which are inserted into table's row? Or regular expression finds more objects while user would like to process as objects order display into the Application Under Test.</h4></li>
 
 	<p>Yes, there is a way the RFSM gives the object back as user pass selection through by recognition string. </p>
 
@@ -212,9 +212,9 @@ div.WordSection1
 	<p>User can do following steps to improve performance quickly</p>
 
 	<ol type="a">
-		<li>Remove unnecessary domains. Open RFT’s IDE, Configure-&gt;Enable Environments-&gt;Java Environment. Remove/Disable all Java except IBM Rational SDP and the AUT’s (Application Under Test) JRE/JDK. </li>
+		<li>Remove unnecessary domains. Open RFT's IDE, Configure-&gt;Enable Environments-&gt;Java Environment. Remove/Disable all Java except IBM Rational SDP and the AUT's (Application Under Test) JRE/JDK. </li>
 
-		<li>User should pass “.domain=Java or Html or Flex” on main window recognition string to speed up finding process.</li>
+		<li>User should pass ".domain=Java or Html or Flex" on main window recognition string to speed up finding process.</li>
 
 		<p>
 
@@ -267,13 +267,13 @@ div.WordSection1
 	<!-- ============================================================================= -->
 	<li><h4 class="safsIdent">Do we have any timeout value for RFSM ?</h4></li>
 	
-	<p>No, there is not any timeout value for the RFSM, if object doesn’t find then RFSM will return null object. However, SAFS have some setting about window and their component, and they are in tidtest.ini file. User can set "SECSWaitForComponent=5" and "SECSWaitForWindow=5" value to retry RFSM finding object until reach the value those values. </p>
+	<p>No, there is not any timeout value for the RFSM, if object doesn't find then RFSM will return null object. However, SAFS have some setting about window and their component, and they are in tidtest.ini file. User can set "SECSWaitForComponent=5" and "SECSWaitForWindow=5" value to retry RFSM finding object until reach the value those values. </p>
 
 
 
 	<!-- ============================================================================= -->
-	<li><h4 class="safsIdent">Sometime I get null object or object can’t be find, even though the RFT object inspector can view them?</h4></li>
-	<p>Check your regular expression string or object’s property. Make sure about property start with “.” Prefix. If regular expression finds more object then RFSM select first one.&nbsp; User can record a script and see the object property match or contact SAFS dev team.</p>
+	<li><h4 class="safsIdent">Sometime I get null object or object can't be find, even though the RFT object inspector can view them?</h4></li>
+	<p>Check your regular expression string or object's property. Make sure about property start with "." Prefix. If regular expression finds more object then RFSM select first one.&nbsp; User can record a script and see the object property match or contact SAFS dev team.</p>
 
 
 
@@ -282,9 +282,9 @@ div.WordSection1
 	<p>You can capture RFSM recognition string by two way, they are following</p>
 
 	<ol type="a">
-		<li>RFT’s Test Object Inspector</li>
+		<li>RFT's Test Object Inspector</li>
 
-		<p>Start RFT, Run&nbsp;-&gt;&nbsp;Test Object Inspector or see for spy glasses with red arrow. It will bring Test Object Inspector GUI, move your mouse to the AUT objects/component (Button etc…), object property will be display into Test Object Inspector.</p>
+		<p>Start RFT, Run&nbsp;-&gt;&nbsp;Test Object Inspector or see for spy glasses with red arrow. It will bring Test Object Inspector GUI, move your mouse to the AUT objects/component (Button etc...), object property will be display into Test Object Inspector.</p>
 
 		<p><img width=415 height=476 id="Picture 4" src="RFSMFAQ_files/image001.jpg"></p>
 
