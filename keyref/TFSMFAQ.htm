@@ -1,0 +1,214 @@
+<html>
+<head>
+  <LINK rel="stylesheet" href="rrafs.css" type="text/css"/>
+  <LINK rel="stylesheet" href="bootstrap.css" type="text/css"/>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>TFSM FAQs</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.msolistparagraphcxspfirst, li.msolistparagraphcxspfirst, div.msolistparagraphcxspfirst
+	{mso-style-name:msolistparagraphcxspfirst;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.msolistparagraphcxspmiddle, li.msolistparagraphcxspmiddle, div.msolistparagraphcxspmiddle
+	{mso-style-name:msolistparagraphcxspmiddle;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.msolistparagraphcxsplast, li.msolistparagraphcxsplast, div.msolistparagraphcxsplast
+	{mso-style-name:msolistparagraphcxsplast;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.msochpdefault, li.msochpdefault, div.msochpdefault
+	{mso-style-name:msochpdefault;
+	margin-right:0in;
+	margin-left:0in;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+.MsoChpDefault
+	{font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US>
+
+<DIV class="container content" NAME="top" ID="top">
+<div name="list" id="detail_desc">
+
+<h1>TFSM  FAQ</h1>
+
+<br>
+
+<ul>
+	<li><a href="#FAQ1">What does TFSM mean?</a></li>
+	<li><a href="#FAQ2">How can I use TFSM algorithm?</a></li>
+	<li><a href="#FAQ3">What are the benefits of TFSM recognition string?</a></li>
+	<li><a href="#FAQ4">Can I use TFSM mode with others modes?</a></li>
+	<li><a href="#FAQ5">Does TFSM support regular expression to find dynamic object window?</a></li>
+	<li><a href="#FAQ6">How many properties require for the TFSM string?</a></li>
+	<li><a href="#FAQ7">What should I do if component objects can’t find by TFSM?</a></li>
+</ul>
+
+<hr>
+
+<ol>
+	<!-- ============================================================================= -->
+	<a name="FAQ1"></a>
+	<li><h4 class="safsIdent">What does TFSM mean?</h4></li>
+	<p>TFSM means TestComplete Find Search Mode. TFSM is a name of the search algorithm. It uses Test Complete API to find AUT’s objects.
+	
+
+
+	<!-- ============================================================================= -->
+	<a name="FAQ2"></a>
+	<li><h4 class="safsIdent">How can I use TFSM algorithm?</h4></li>
+	<p>Just add <code>:TFSM:</code> prefix at beginning of the recognition string.</p>
+
+	<p>Example:</p>
+
+	<code class="safs">
+	[MainWindow] <br>
+	MainWindow=":TFSM:processName=iexplore;objecttype=Page;url=http://www.google.ca/"
+	HtmlLink="TFSM:tagName=A;namePropStr=advanced_search*"
+	</code>
+
+	<p><b>Note:</b> processName if not a window property, but TFSM must require as part of the main window recognition string only.</p>
+
+	<p>Above example is for IE, so the processName is "iexplore". The processName is case insensitive and define anywhere into the string.</p>
+
+
+
+	<!-- ============================================================================= -->
+	<a name="FAQ3"></a>
+	<li><h4 class="safsIdent">What are the benefits of TFSM recognition string?</h4></li>
+	<ol type="a">
+		<li>The recognition string size is small and easy to maintain.</li>
+		<li>The recognition string is specific to the component only, so if the AUT design change, e.g add new panel or so, the TFSM string should be same.</li>
+		<li>Easy maintenance.</li>
+	</ol>
+
+
+
+	<!-- ============================================================================= -->
+	<a name="FAQ4"></a>
+	<li><h4 class="safsIdent">Can I use TFSM mode with others modes?</h4></li>
+	<p>Yes, add <code>:TFSM:</code>  prefix to the recognition string. SAFS engine will process prefix tag appropriately.</p>
+
+	<p>MainWindow may be regular TC recognition string and HtmlLink can be TFSM mode. Any combination works.</p>
+
+	<p>Example:  User can define appmap following way</p>
+
+	<code class="safs">
+	[MainWindow] <br>
+	MainWinow="Sys.Process("iexplore").IEFrame(0).Window("WorkerW", "Navigation Bar", 1).Window("ReBarWindow32", "", 1).Window("Address Band Root", "", 1).Window("ToolbarWindow32", "Address Combo Control", 1)" <br>
+	HtmlLink ="TFSM:tagName=A;namePropStr=advanced_search*"
+	</code>
+
+
+
+	<!-- ============================================================================= -->
+	<a name="FAQ5"></a>
+	<li><h4 class="safsIdent">Does TFSM support regular expression to find dynamic object window?</h4></li>
+	<p>Yes, TFSM supports regular expression. It follows the Test Complete regular expression standards.</p>
+
+	<p>Example:</p>
+
+	<code class="safs">
+	[MainWindow] <br>
+	MainWindow=":TFSM:processName=iexplore;objecttype=Page;url=http://www.google.ca/"<br>
+	HtmlLink =”TFSM:tagName=A;namePropStr=advanced_search*”
+	</code>
+
+
+
+	<!-- ============================================================================= -->
+	<a name="FAQ6"></a>
+	<li><h4 class="safsIdent"> How many properties require for the TFSM string?</h4></li>
+	<p>There are no such any rules, but as long as the object has unique property then it should work. Normally, two property are enough for the best practices.</p>
+
+	<p>Example:</p>
+
+	<code class="safs">
+	HtmlLink ="TFSM:tagName=A;namePropStr=advanced_search*"
+	</code>
+
+
+
+	<!-- ============================================================================= -->
+	<a name="FAQ7"></a>
+	<li><h4 class="safsIdent">What should I do if component objects can’t find by TFSM?</h4></li>
+	<p>There is possibility that the component objects are very deep into the AUT and TFSM can’t reach them. However, user can specify <code>depthLevel=&lt;some number&gt;</code> to increase the TFSM search area.</p>
+
+	<p>Example:</p>
+
+	<code class="safs">
+	[MainWindow] <br>
+	MainWindow=":TFSM:processName=iexplore;objecttype=Page;url=http://www.google.ca/" <br>
+	HtmlLink="TFSM:tagName=A;namePropStr=advanced_search*;depthLevel=200"
+	</code>
+
+	<p><b>Note:</b> <i>depthLevel</i> is case insensitive and default number is 5.</p>
+
+</ol>
+
+<hr>
+
+</div></DIV>
+</body>
+
+</html>
