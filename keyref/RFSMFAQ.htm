@@ -1,0 +1,316 @@
+<html>
+
+<head>
+  <LINK rel="stylesheet" href="rrafs.css" type="text/css"/>
+  <LINK rel="stylesheet" href="bootstrap.css" type="text/css"/>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<title>RFSM FAQs</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma","sans-serif";}
+p.msolistparagraphcxspfirst, li.msolistparagraphcxspfirst, div.msolistparagraphcxspfirst
+	{mso-style-name:msolistparagraphcxspfirst;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.msolistparagraphcxspmiddle, li.msolistparagraphcxspmiddle, div.msolistparagraphcxspmiddle
+	{mso-style-name:msolistparagraphcxspmiddle;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.msolistparagraphcxsplast, li.msolistparagraphcxsplast, div.msolistparagraphcxsplast
+	{mso-style-name:msolistparagraphcxsplast;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.msochpdefault, li.msochpdefault, div.msochpdefault
+	{mso-style-name:msochpdefault;
+	margin-right:0in;
+	margin-left:0in;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+.MsoChpDefault
+	{font-size:10.0pt;
+	font-family:"Calibri","sans-serif";}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US>
+
+<DIV class="container content" NAME="top" ID="top">
+<div name="list" id="detail_desc">
+
+<h1>RFSM FAQ</h1>
+
+<ol>
+	<!-- ============================================================================= -->
+	<li><h4 class="safsIdent">What does RFSM mean?</h4></li>
+	<p>RFSM means RFT Find Search Mode. RFSM is a name of the search algorithm. It uses RFT API to find AUT’s objects. 
+	
+
+
+	<!-- ============================================================================= -->
+	<li><h4 class="safsIdent">How can I use RFSM algorithm?</h4></li>
+	<p>Just add <code>:RFSM:</code> prefix at beginning of the recognition string.</p>
+
+	<p>Example: <code>:RFSM:.domain=Java;.class=com.sas.test</code>
+
+	<p>Using above, user can run any search mode simultaneously with FPSM or/and MCSM.</p>
+
+	<p>Or</p>
+
+	<p>Turn on exclusively RFMS mode by adding <code>RFSMOnly=true</code> flag into the tidtest.ini file of the automation project. Once you turn on the flag then the recognition string doesn’t require <code>:RFSM:</code> prefix. </p>
+
+	<p>Example: <code>.domain=Java;.class=com.sas.test</code></p>
+
+	<p>Using above, Only RFSM runs exclusively.</p>
+
+
+
+	<!-- ============================================================================= -->
+	<li><h4 class="safsIdent">Can I use RFSM mode with others mode such as MCSM, FPSM or both?</h4></li>
+	<p>Yes, Add <code>:RFSM:</code> prefix to the recognition string. SAFS engine will process prefix tag appropriately.</p>
+
+	<p>User also can keep Main window string FPSM or MCSM mode and child recognition string FSMS mode. Any
+	combination works. </p>
+
+	<p>Example: User can define appmap following way</p>
+
+	<code class="safs">
+	[SASHelp]<br>
+	SASHelp=”Type=Window;Caption={^T.SASHelp.Caption}”<br>
+	ButtonPrint=":RFSM:.class=javax.swing.JButton;.text=Print"
+	</code>
+
+
+
+	<!-- ============================================================================= -->
+	<li><h4 class="safsIdent">Does RFSM support regular expression to find dynamic object window?</h4></li>
+	
+	<p>Yes, RFSM supports regular expression and follow java’s regular expression rules. Regular Expression
+	syntax will specify into / regular expression / block. </p>
+
+	<p>Examples: if regular expression
+	is ^SAS Management Console or Server$&nbsp; or gv\d+ </p>
+
+	<p>a. <code>:RFSM:.domain=Java;class=com.sas.comsole.managment;title=/^SAS
+	Management Console/</code></p>
+
+	<p>b. <code>:RFSM:.domain=Java;class=com.sas.comsole.managment;title={^T.ServerName}</code>, where <code>T.ServerName= /Server$/</code></p>
+
+	<p>c. <code>:RFSM:.domain=Java;class=com.sas.comsole.managment;.id=/gv\d+/</code></p>
+
+
+
+	
+	<!-- ============================================================================= -->
+	<li><h4 class="safsIdent">Does recognition string have any reserved words for the syntax?</h4></li>
+	<p>Yes, “<b>;</b>” "<b>;\;</b>" and “<b>=</b>” are reserves for recognition strings. Don’t use them as part of regular expression or object property value. If it required as object property value, then make regular expression to substitute.</p>
+
+	<p>Example:</p>
+
+	<p>Wrong recognition string example</p>
+
+	<ol type="a">
+		<li>:RFSM:.domain=Java;class=com.sas.comsole.managment;title=SAS Management Console<b>;My profile</b></li>
+		<li>:RFSM:.domain=Java;class=com.sas.comsole.managment;title=/<b>temp=</b>[a-z]\d+/</li>
+	</ol>
+
+	<p>
+
+	<p>Correct recognition string example</p>
+
+	<ol type="a" start="3">
+		<li>:RFSM:.domain=Java;class=com.sas.comsole.managment;title=/SAS Management Console<b>$</b>/</li>
+		<li>:RFSM:.domain=Java;class=com.sas.comsole.managment;title=/temp<b>.</b>[a-z]\d+/</li>
+	</ol>
+
+
+
+	<!-- ============================================================================= -->
+	<li><h4 class="safsIdent">How can I capture recognition string for the RFSM?</h4></li>
+	<p>Use RFT’s Test Object Inspector (Run&nbsp;-&gt;&nbsp;Test Object Inspector…) utility to find AUT object’s property. There are many property starts with "." prefix, keep them as they are display.</p>
+
+
+
+	<!-- ============================================================================= -->
+	<li><h4 class="safsIdent">How can I find dynamic property change objects which are inserted into table’s row? Or regular expression finds more objects while user would like to process as objects order display into the Application Under Test.</h4></li>
+
+	<p>Yes, there is a way the RFSM gives the object back as user pass selection through by recognition string. </p>
+
+	<p>Example: </p>
+
+	<p><code class="safsIdent">:RFSM:.domain=Html;class=Html.IMG;.id=/gv\d+/;<b>Index=1</b></code></p>
+
+	<p>Above case, Index is not an object recognition property. But if above regular expression finds more than one HTML Images by id=gvxxxx, Index helps user to select/get first object among all.</p>
+
+
+
+	<!-- ============================================================================= -->
+	<li><h4 class="safsIdent">How can I improve the performance? Or RFSM is taking long time to find first/main window?</h4></li>
+	
+	<p>User can do following steps to improve performance quickly</p>
+
+	<ol type="a">
+		<li>Remove unnecessary domains. Open RFT’s IDE, Configure-&gt;Enable Environments-&gt;Java Environment. Remove/Disable all Java except IBM Rational SDP and the AUT’s (Application Under Test) JRE/JDK. </li>
+
+		<li>User should pass “.domain=Java or Html or Flex” on main window recognition string to speed up finding process.</li>
+
+		<p>
+
+		<p>Example:</p>
+
+		<ol type="a">
+			<li>:RFSM:.domain=Java;class=com.sas.comsole.managment;title=/temp<b>.</b>[a-z]\d+/</li>
+			<li>:RFSM:.domain=Html;.class=Html.HtmlBrowser</li>
+		</ol>
+
+		<p>
+
+		<p>It is recommended to add ".domain=Flex or Java or Html" for each new window into the appmap, so new window find narrow down to the specific domain. 
+
+		<p>
+
+		<p>Example:</p>
+
+		<p>
+
+		<code class="safs">
+		[WRSWindow] <br>
+		WRSWindow=&quot;:RFSM:.domain=Html;.class=Html.HtmlBrowser&quot; <br>
+		FileButton=&quot;:RFSM:.class=Html.BUTTON;.id=citationFileButton&quot;
+		</code>
+
+		<br>
+
+		<code class="safs">
+		[FlexWindow]
+		FlexWindow=&quot;:RFSM:.domain=Flex;className=RunTimeLoaderFlex30.class=FlexApplication;automationClassName=FlexApplication&quot;
+		MenuBar=&quot;:RFSM:.class=FlexMenuBar;className=mx.controls.MenuBar;id=menuBar;automationClassName=FlexMenuBar&quot;
+		</code>
+
+		<li>User should consider adding additional hierarchy (parent;\;child) information into the recognition string to guide the search algorithm down the right path. &nbsp;Notice the use of '<b>;\;</b>' to separate parent\child hierarchy.</li>
+
+		<p></p>
+
+		<p>Example:</p>
+
+		<code class="safs">
+		[WRSWindow]
+		WRSWindow=&quot;:RFSM:.domain=Html;.class=Html.HtmlBrowser&quot;
+		DeepButton=&quot;:RFSM:.class=Html.HtmlDocument;.title=topDoc;\;.class=Html.HtmlFrame;.id=contentPane;\;.class=Html.HtmlDocument;.title=buttonPane;\;.class=Html.HtmlButton;.id=myButton&quot;
+		</code>
+	</ol>
+
+
+
+	<!-- ============================================================================= -->
+	<li><h4 class="safsIdent">Do we have any timeout value for RFSM ?</h4></li>
+	
+	<p>No, there is not any timeout value for the RFSM, if object doesn’t find then RFSM will return null object. However, SAFS have some setting about window and their component, and they are in tidtest.ini file. User can set "SECSWaitForComponent=5" and "SECSWaitForWindow=5" value to retry RFSM finding object until reach the value those values. </p>
+
+
+
+	<!-- ============================================================================= -->
+	<li><h4 class="safsIdent">Sometime I get null object or object can’t be find, even though the RFT object inspector can view them?</h4></li>
+	<p>Check your regular expression string or object’s property. Make sure about property start with “.” Prefix. If regular expression finds more object then RFSM select first one.&nbsp; User can record a script and see the object property match or contact SAFS dev team.</p>
+
+
+
+	<!-- ============================================================================= -->
+	<li><h4 class="safsIdent">How can I capture RFSM recognition string?</h4></li>
+	<p>You can capture RFSM recognition string by two way, they are following</p>
+
+	<ol type="a">
+		<li>RFT’s Test Object Inspector</li>
+
+		<p>Start RFT, Run&nbsp;-&gt;&nbsp;Test Object Inspector or see for spy glasses with red arrow. It will bring Test Object Inspector GUI, move your mouse to the AUT objects/component (Button etc…), object property will be display into Test Object Inspector.</p>
+
+		<p><img width=415 height=476 id="Picture 4" src="RFSMFAQ_files/image001.jpg"></p>
+
+		<p>The HTML Tab recognition string would be ":RFSM:.id=tablink2;.text=By Industry". Normally, two unique properties are enough.</p>
+
+		<li>Find object by recording script for RFT.</li>
+
+		<p>Open RFT, create a project and an empty script. Insert recording by Script&nbsp;-&gt;&nbsp;Insert Recording, the recording will start and click on object to record. Once you record the object then click hit for stop. The new object will insert into RFT object map and it will display on RFT right side Script Explorer view.</p>
+
+		<p><img width=234 height=214 id="Picture 5" src="RFSMFAQ_files/image002.jpg"></p>
+
+		<p>Double click on link_tablink2 for the property info.</p>
+
+		<p><img width=624 height=467 id="Picture 6" src="RFSMFAQ_files/image003.jpg"></p>
+
+		<p>The recognition string would be ":RFSM:.id=tablink2;.text=By Industry"</p>
+
+		<p>User can use any one above method to capture recognition RFSM string; there is no difference, but different ways</p>
+	</ol>
+
+</ol>
+
+<hr>
+
+</div></DIV>
+
+</body>
+
+</html>
