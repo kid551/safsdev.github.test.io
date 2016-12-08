@@ -102,14 +102,32 @@ div.WordSection1
 
 <h1>RFSM FAQ</h1>
 
+<ul>
+	<li><a href="#FAQ1">What does RFSM mean?</a></li>
+	<li><a href="#FAQ2">How can I use RFSM algorithm?</a></li>
+	<li><a href="#FAQ3">Can I use RFSM mode with others mode such as MCSM, FPSM or both?</a></li>
+	<li><a href="#FAQ4">Does RFSM support regular expression to find dynamic object window?</a></li>
+	<li><a href="#FAQ5">Does recognition string have any reserved words for the syntax?</a></li>
+	<li><a href="#FAQ6">How can I capture recognition string for the RFSM?</a></li>
+	<li><a href="#FAQ7">How can I find dynamic property change objects which are inserted into table's row? Or regular expression finds more objects while user would like to process as objects order display into the Application Under Test.</a></li>
+	<li><a href="#FAQ8">How can I improve the performance? Or RFSM is taking long time to find first/main window?</a></li>
+	<li><a href="#FAQ9">Do we have any timeout value for RFSM?</a></li>
+	<li><a href="#FAQ10">Sometime I get null object or object can't be find, even though the RFT object inspector can view them?</a></li>
+	<li><a href="#FAQ11">How can I capture RFSM recognition string?</a></li>
+</ul>
+
+<hr>
+
 <ol>
 	<!-- ============================================================================= -->
+	<a name="FAQ1"></a>
 	<li><h4 class="safsIdent">What does RFSM mean?</h4></li>
 	<p>RFSM means RFT Find Search Mode. RFSM is a name of the search algorithm. It uses RFT API to find AUT's objects. 
 	
 
 
 	<!-- ============================================================================= -->
+	<a name="FAQ2"></a>
 	<li><h4 class="safsIdent">How can I use RFSM algorithm?</h4></li>
 	<p>Just add <code>:RFSM:</code> prefix at beginning of the recognition string.</p>
 
@@ -128,6 +146,7 @@ div.WordSection1
 
 
 	<!-- ============================================================================= -->
+	<a name="FAQ3"></a>
 	<li><h4 class="safsIdent">Can I use RFSM mode with others mode such as MCSM, FPSM or both?</h4></li>
 	<p>Yes, Add <code>:RFSM:</code> prefix to the recognition string. SAFS engine will process prefix tag appropriately.</p>
 
@@ -145,6 +164,7 @@ div.WordSection1
 
 
 	<!-- ============================================================================= -->
+	<a name="FAQ4"></a>
 	<li><h4 class="safsIdent">Does RFSM support regular expression to find dynamic object window?</h4></li>
 	
 	<p>Yes, RFSM supports regular expression and follow java's regular expression rules. Regular Expression
@@ -164,6 +184,7 @@ div.WordSection1
 
 	
 	<!-- ============================================================================= -->
+	<a name="FAQ5"></a>
 	<li><h4 class="safsIdent">Does recognition string have any reserved words for the syntax?</h4></li>
 	<p>Yes, "<b>;</b>" "<b>;\;</b>" and "<b>=</b>" are reserves for recognition strings. Don't use them as part of regular expression or object property value. If it required as object property value, then make regular expression to substitute.</p>
 
@@ -188,12 +209,14 @@ div.WordSection1
 
 
 	<!-- ============================================================================= -->
+	<a name="FAQ6"></a>
 	<li><h4 class="safsIdent">How can I capture recognition string for the RFSM?</h4></li>
 	<p>Use RFT's Test Object Inspector (Run&nbsp;-&gt;&nbsp;Test Object Inspector...) utility to find AUT object's property. There are many property starts with "." prefix, keep them as they are display.</p>
 
 
 
 	<!-- ============================================================================= -->
+	<a name="FAQ7"></a>
 	<li><h4 class="safsIdent">How can I find dynamic property change objects which are inserted into table's row? Or regular expression finds more objects while user would like to process as objects order display into the Application Under Test.</h4></li>
 
 	<p>Yes, there is a way the RFSM gives the object back as user pass selection through by recognition string. </p>
@@ -207,6 +230,7 @@ div.WordSection1
 
 
 	<!-- ============================================================================= -->
+	<a name="FAQ8"></a>
 	<li><h4 class="safsIdent">How can I improve the performance? Or RFSM is taking long time to find first/main window?</h4></li>
 	
 	<p>User can do following steps to improve performance quickly</p>
@@ -265,19 +289,22 @@ div.WordSection1
 
 
 	<!-- ============================================================================= -->
-	<li><h4 class="safsIdent">Do we have any timeout value for RFSM ?</h4></li>
+	<a name="FAQ9"></a>
+	<li><h4 class="safsIdent">Do we have any timeout value for RFSM?</h4></li>
 	
 	<p>No, there is not any timeout value for the RFSM, if object doesn't find then RFSM will return null object. However, SAFS have some setting about window and their component, and they are in tidtest.ini file. User can set "SECSWaitForComponent=5" and "SECSWaitForWindow=5" value to retry RFSM finding object until reach the value those values. </p>
 
 
 
 	<!-- ============================================================================= -->
+	<a name="FAQ10"></a>
 	<li><h4 class="safsIdent">Sometime I get null object or object can't be find, even though the RFT object inspector can view them?</h4></li>
 	<p>Check your regular expression string or object's property. Make sure about property start with "." Prefix. If regular expression finds more object then RFSM select first one.&nbsp; User can record a script and see the object property match or contact SAFS dev team.</p>
 
 
 
 	<!-- ============================================================================= -->
+	<a name="FAQ11"></a>
 	<li><h4 class="safsIdent">How can I capture RFSM recognition string?</h4></li>
 	<p>You can capture RFSM recognition string by two way, they are following</p>
 
