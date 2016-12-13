@@ -9,7 +9,7 @@ title: SAFS Documents
 
 **SAFS "How To..."**
 
-- [SAFS Framework Details](../keyref/JSAFSFramework.htm)
+- [SAFS Framework Details](../keyref/JSAFSFrameworkContent.htm)
 - [SAFS Object-Based Recognition](../keyref/SAFSComponentRecognition.htm)
 - [SAFS Image-Based Recognition](../keyref/SAFSImageBasedRecognition.htm)
 - [Use DDVariables](../keyref/UsingDDVariables.htm)
