@@ -1,7 +1,14 @@
 ---
 layout: page
-title: SeleniumPlus Tutorial
+title: SAFS Tutorials
 ---
+
+**Installation**
+
+**How to use details**
+
+---
+
 
 # Intro to SeleniumPlus
 

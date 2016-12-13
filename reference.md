@@ -7,9 +7,11 @@ title: SAFS Documents
 
 ---
 
-**SAFS "How To..."**
+**General SAFS Documents**
 
 - [SAFS Framework Details](../keyref/JSAFSFrameworkContent.htm)
+- [Building a SAFS Engine](../keyref/SAFSEngineDetails.htm)
+- [SAFS Framework Development](../keyref/SAFSFramework.htm)
 - [SAFS Object-Based Recognition](../keyref/SAFSComponentRecognition.htm)
 - [SAFS Image-Based Recognition](../keyref/SAFSImageBasedRecognition.htm)
 - [Use DDVariables](../keyref/UsingDDVariables.htm)
@@ -22,20 +24,20 @@ title: SAFS Documents
 
 ---
 
-**AQA Test Complete "How To..."**
+**AQA Test Complete Documents**
 
 - [Using TFSM FAQ](../keyref/TFSMFAQ.htm)
 
 ---
 
-**Mobile Android "How To..."**
+**Mobile Android Documents**
 
 - [Develop Robotium Remote Control](../keyref/SAFSRobotiumDevelopment.htm)
 - [Use SAFS TCP Messenger](../keyref/UsingSAFSTCPMessenger.htm)
 
 ---
 
-**IBM Functional Tester "How To..."**
+**IBM Functional Tester Documents**
 
 - [SAFS RFT Quick Start](../keyref/SAFSQuickStart.htm)
 - [Create App Maps](../keyref/CreateRFTAppMaps.htm)
@@ -44,7 +46,7 @@ title: SAFS Documents
 
 ---
 
-**RRAFS "How To..."**
+**RRAFS Documents**
 
 - [Setup\Install RRAFS Engine](../keyref/DDEngineSetup.htm)
 - [RRAFS Internal Details](../keyref/RRAFS_Details_Index.htm) [New Win] 
@@ -55,6 +57,6 @@ title: SAFS Documents
 
 ---
 
-**REST Testing**
+**REST API Documents**
 
 - [Use REST Testing API](../keyref/UsingSAFSRestTesting.htm)
