@@ -1,0 +1,178 @@
+<html>
+<head>
+  <LINK rel="stylesheet" href="rrafs.css" type="text/css"/>
+  <LINK rel="stylesheet" href="bootstrap.css" type="text/css"/>
+<title>Using RFT Object Maps with SAFS</title>
+</head>
+<body>
+<DIV class="container content" NAME="top" ID="top">
+<div name="list" id="detail_desc">
+
+
+
+<center><h1 style="color:#ac4142; font-weight:600; font-size:37px; background-color:#fff;">Using RFT Object Maps with SAFS Balancing <br> SAFS\RFT Portability with Performance</h1></center>
+<br>
+<center><small>Released 2009.06.15</small></center>
+
+<p>
+<br>
+
+<hr>
+
+<h3>Changing times, Changing tools...</h3>
+
+<p>
+<small><a href="#shortinfo">(Skip the pitch)</a></small>
+
+<p>
+Over the years <a href="http://www-01.ibm.com/software/awdtools/tester/functional/index.html">IBM Rational<SUP>&reg;</SUP> Functional Tester</a> (RFT) has grown in scope and popularity when compared to older tools like <a href="http://www-01.ibm.com/software/awdtools/tester/robot/index.html">IBM Rational<SUP>&reg;</SUP> Robot</a>.  This has been great for those using RFT to test more technologies, but for those migrating SAFS tests from Robot to RFT it also means a potential impact on performance as RFT sifts through a growing number of technology proxies looking for just the right match to ported Robot recognition strings.
+
+<hr>
+
+<h3>Porting Tests and App Maps</h3>
+
+<p>
+Fortunately, migrating a SAFS test from using Robot to using RFT is not a "start over" scenario.  SAFS\RFT was coded to handle most Robot recognition strings allowing the greatest portion of SAFS tests and App Maps to run with few modifications when migrated to RFT.
+
+<p>
+However, the convenience of using Robot recognition strings in SAFS comes with a price.  Under certain test domains like Win, .Net, and Html the tests might run slower than desired--especially if multiple domains are enabled for testing.  If these performance issues are significant enough, the tester may wish to leverage RFT Object Map objects within the SAFS App Map.
+
+<p>(See <a href="http://safsdev.sourceforge.net/sqabasic2000/CreateRFTAppMaps.htm#objectmapalternative">Create RFT App Maps Info</a> for more background.)
+
+<hr>
+
+<h3>Application-Specific Object Map, Application-Specific Project</h3>
+
+<p>
+Normally, when we are not using app-specific resources in RFT we would not have to make a new RFT Datastore or Project.  We simply use the one provided by SAFS at <i>C:\SAFS\DatastoreJ</i>. However, as soon as we start needing custom app-specific scripts or Object Maps then we must create a separate RFT Project dedicated to the application or system being tested.  One obvious location is to create an RFT project directly in the SAFS project used for the application or system being tested.
+
+<p>
+So, let's go about the business of creating a new RFT Project associated with a SAFS Project we created for our NextBigApp at <i>C:\automation\NextBigApp</i>:
+
+<hr>
+
+<a name="shortinfo"></a>
+<h4 class="safsIdent">Short and Sweet Instructions: (sort of)</h4> 
+
+<p>
+<small><a href="#detailedinfo">(Go to Pretty Pictures &quot;for Dummies&quot;<FONT SIZE="-1"><SUP>TM</SUP></FONT>)</a></small>
+
+<p>
+<ol>
+	<li><h4 class="safsIdent">Create the Functional Test Project</h4>
+
+	<p>
+	<ol>
+		<li>Open the RFT IDE</li>
+		<li>Ensure RFT is in the "Functional Test" Perspective</li>
+		<li>Select File->New->Functional Test Project</li>
+		<li>Provide a RFT <b>Project Name</b>: "<i>MyRFTProject</i>"</li>
+		<li>Provide a RFT <b>Project location</b>: "<i>C:\automation\NextBigApp</i>"</li>
+		<li>If the <b>Rational Test Login</b> dialog appears <I>Cancel</I> or <I>Login</I> as appropriate.</li>
+		<li>Verify your RFT Project exists at: <b>C:\automation\NextBigApp\MyRFTProject</b></li>
+	</ol>
+
+	<p>
+	<li><h4 class="safsIdent">Add JAR files to Project's Java Build Path</h4>
+	<p>
+	<ol>
+		<li>Right-Click Project <b>MyRFTProject</b> in the Navigator view,</li>
+		<li>Select <b>Properties</b> from the popup menu,</li>
+		<li>Select <b>Java Build Path</b> in the Properties Dialog</li>
+		<li>Select button <b>Add External JARs...</b></li>
+		<li>Navigate to <b>C:\SAFS\lib</b> and add 2 JARS:</li>
+		<ul>
+			<li>safs.jar</li>
+			<li>safsrational_ft.jar</li>
+		</ul>
+		<li>Select button OK to close the Properties dialog.</li>
+	</ol>
+
+	<p>
+	<li><h4 class="safsIdent">Create New Test Object Map</h4>
+	<p>
+	<ol>
+		<li>Select File->New->Test Object Map</li>
+		<li>Provide the Map name: <b>AppObjectMap</b></li>
+		<li>Select <i>"Set this Test Object Map as default choice for new scripts"</i></li>
+		<li>Select button Finish</li>
+		<li>Close the Test Object Map dialog if it appears.</li>
+	</ol>
+
+	<p>
+	<li><h4 class="safsIdent">Create New Empty Functional Test Script <i>"TestScript"</i></h4>
+	<p>
+	<ol>
+		<li>Select File->New->Empty Functional Test Script</li>
+		<li><b>REQUIRED</b> Script Name: <b>TestScript</b>,</li>
+		<li>Select button Next,</li>
+		<li>Ensure /AppObjectMap.rftmap is assigned to TestScript,</li>
+		<li>Select button Finish.</li>
+	</ol>
+
+	<p>
+	<li><h4 class="safsIdent">Change the Helper Superclass for TestScript</h4>
+	<p>
+	<ol>
+		<li>Right-Click <b>TestScript.java</b> in the Navigator view,</li>
+		<li>Select <b>Properties</b> from the popup menu,</li>
+		<li>Change the Helper Superclass to: <b>org.safs.rational.Script</b></li>
+		<li>Select button OK.</li>
+	</ol>
+
+	<p>
+	<li><h4 class="safsIdent">Copy real SAFS\RFT TestScript Assets To Project</h4>
+	<p>
+	<ol>
+		<li>If the asset(s) are not available to copy from <b>C:\safs\datastorej</b> then extract the files out of the <b>C:\safs\lib\safsrational_ft.jar</b> using a program like WINZIP<FONT SIZE="-1"><SUP>TM</SUP></FONT>.</li>
+		<li>Copy\Extract <b>TestScript.java</b> to: C:\automation\NextBigApp\MyRFTProject\<b>TestScript.java</b>.</li>
+		<li>Refresh the RFT Project with File->Refresh&nbsp;&nbsp;&nbsp;F5.</li>
+	</ol>
+
+	<p>
+	<li><h4 class="safsIdent">Capture Objects in AppObjectMap for Use by SAFS\RFT</h4>
+	<p>
+	<ol>
+		<li><i>DO NOT RECORD IN </i> <b>TestScript.java</b> <i>TO CAPTURE TEST OBJECT MAP OBJECTS!</i></li>
+		<li>Open TestScript.java in RFT to populate the "Script Explorer" view,</li>
+		<li>In Script Explorer, under Test Objects, Right-Click on "AppObjectMap.rftmap" and Select "Open",</li>
+		<li>For each object you wish to support in SAFS with TestScript do the following:</li>
+		
+		<p>
+		
+		<ul>
+			<li>In the "Test Object Map" viewer select "Test Object->Insert Object(s)",</li>
+			<li>From the "Select an Object" dialog Drag the Hand and Release on the object to capture,</li>
+			<li>Right-Click desired items in the Test Object Map and select "Add to Script TestScript..."</li>
+			<li>In the "Script Explorer" view of TestScript, Right-Click the newly added Test Objects and "Rename" them, as desired.</li>
+		</ul>
+
+		<li>Whenever closing the Test Object Map viewer, Select "Yes" or "OK" to save the changes to AppObjectMap.rftmap,</li>
+		<li>Use the Test Object names defined in TestScript in your SAFS App Maps in place of SAFS recognition strings.</li>
+	</ol>
+</ol>
+
+<hr>
+
+<a name="detailedinfo"></a>
+<h3>Detailed Instructions</h3>
+
+<p>
+Our SAFS project for NextBigApp was originally created at C:\automation\NextBigApp, as shown below:
+
+<p><center>
+<img src="NextBigAppProject.GIF"/>
+</center>
+
+<p><center>
+<img src="RFTScriptExplorerMapped.GIF"/>
+</center>
+
+<p><center>
+<img src="SPCNotepadWinObject.GIF"/>
+</center>
+
+<hr>
+
+</div></div>
+</body></html>
